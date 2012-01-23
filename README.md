@@ -13,4 +13,4 @@ Original source [(c) Chris Veness 2002-2011](http://www.movable-type.co.uk/scrip
 getDistance(lat1, lon1, lat2, lon2)
 </code>
 
-getDistance() returns distance between 2 points in metres
+getDistance() returns distance between 2 points in meters
