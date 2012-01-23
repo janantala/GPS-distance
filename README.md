@@ -8,7 +8,7 @@ Original source [(c) Chris Veness 2002-2011](http://www.movable-type.co.uk/scrip
 * javascript 
 * python
 
-### Simply usage: ###
+### Simple usage: ###
 <code>
 getDistance(lat1, lon1, lat2, lon2)
 </code>
