@@ -85,6 +85,3 @@ public final class Distance
 		System.out.println( getDistance(48.148636, 17.107558, 48.208810, 16.372477) );// 54992.5682073
 	}
 }
-
-
-
