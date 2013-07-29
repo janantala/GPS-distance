@@ -10,7 +10,7 @@ Original source [(c) Chris Veness 2002-2011](http://www.movable-type.co.uk/scrip
 
 ### Simple usage:
 ```
-getDistance(lat1, lon1, lat2, lon2)
+meters = getDistance(lat1, lon1, lat2, lon2)
 ```
 
 ``getDistance()`` returns distance between 2 points in meters
