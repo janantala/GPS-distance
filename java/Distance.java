@@ -1,9 +1,4 @@
 /*
-	Compile: javac Distance.java 
-	Run: java Distance
-*/
-
-/*
 ###===================================================================================================
 ### get distance in metres between 2 points:
 ### Vincenty Formula http://www.movable-type.co.uk/scripts/latlong-vincenty.html
