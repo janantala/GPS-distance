@@ -86,7 +86,13 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
 
 int main(int argc, char * argv[]) 
 {
-	printf("%lf\n", getDistance(48.154563, 17.072561, 48.154564, 17.072562) ); //     0.133728
-	printf("%lf\n", getDistance(48.154563, 17.072561, 48.158800, 17.064064) ); //   787.656613
-	printf("%lf\n", getDistance(48.148636, 17.107558, 48.208810, 16.372477) ); // 54992.568207
+	//printf("%lf\n", getDistance(48.154563, 17.072561, 48.154564, 17.072562) ); //     0.133728
+	//printf("%lf\n", getDistance(48.154563, 17.072561, 48.158800, 17.064064) ); //   787.656613
+	//printf("%lf\n", getDistance(48.148636, 17.107558, 48.208810, 16.372477) ); // 54992.568207
+	if (argc != 5) {
+	    printf("Syntax: %s lat1 long1 lat2 long2\n", argv[0]);
+	    exit (1);
+	} else {
+	    printf("%lf\n", getDistance(atof(argv[1]),atof(argv[2]),atof(argv[3]),atof(argv[4])));
+	}
 }
