@@ -10,7 +10,6 @@
 #define PI 3.14159265358979323846
 
 /*
-###===================================================================================================
 ### get distance in metres between 2 points:
 ### Vincenty Formula http://www.movable-type.co.uk/scripts/latlong-vincenty.html
 */
@@ -26,7 +25,6 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
 	double a = 6378137, b = 6356752.314245, f = 1 / 298.257223563;
 	double L = toRadians(lon2 - lon1);
 
-
 	double U1 = atan((1 - f) * tan(toRadians(lat1)));
 	double U2 = atan((1 - f) * tan(toRadians(lat2)));
 	double sinU1 = sin(U1), cosU1 = cos(U1);
@@ -41,12 +39,12 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
 	do 
 	{
 		double sinLambda = sin(lambda), cosLambda = cos(lambda);
-		sinSigma = sqrt(	(cosU2 * sinLambda)
-						* (cosU2 * sinLambda)
-							+ (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda)
-								* (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda)
-							);
-		if (sinSigma == 0) 
+		sinSigma = sqrt((cosU2 * sinLambda)
+					* (cosU2 * sinLambda)
+						+ (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda)
+							* (cosU1 * sinU2 - sinU1 * cosU2 * cosLambda)
+						);
+		if (sinSigma == 0)
 		{
 			return 0;
 		}
@@ -59,17 +57,15 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
 
 		double C = f / 16 * cosSqAlpha * (4 + f * (4 - 3 * cosSqAlpha));
 		lambdaP = lambda;
-		lambda = 	L + (1 - C) * f * sinAlpha	
-					* 	(sigma + C * sinSigma	
-						* 	(cos2SigmaM + C * cosSigma
-							* 	(-1 + 2 * cos2SigmaM * cos2SigmaM)
-							)
-						);
-		
+		lambda = L + (1 - C) * f * sinAlpha
+				* 	(sigma + C * sinSigma
+					* 	(cos2SigmaM + C * cosSigma
+						* 	(-1 + 2 * cos2SigmaM * cos2SigmaM)
+						)
+					);
 	} while (abs(lambda - lambdaP) > 1e-12 && --iterLimit > 0);
 
-	if (iterLimit == 0) 
-	{
+	if (iterLimit == 0) {
 		return 0;
 	}
 
@@ -84,9 +80,7 @@ double getDistance(double lat1, double lon1, double lat2, double lon2)
 							* (-1 + 2 * cos2SigmaM * cos2SigmaM) - B / 6 * cos2SigmaM
 								* (-3 + 4 * sinSigma * sinSigma)
 									* (-3 + 4 * cos2SigmaM * cos2SigmaM)));
-	
 	double s = b * A * (sigma - deltaSigma);
-		
 	return s;
 }
 
